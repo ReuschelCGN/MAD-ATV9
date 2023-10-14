@@ -1,6 +1,4 @@
 #!/system/bin/sh
-#This is for update_mad version
-uver="9.0"
 # mad rom version
 madver="2.1"
 pdconf="/data/data/com.mad.pogodroid/shared_prefs/com.mad.pogodroid_preferences.xml"
@@ -159,11 +157,6 @@ else
 fi
 }
 
-execute_autoupdates(){
-if ! grep -q "version $uver" /system/bin/update_mad.sh; then
-    download https://raw.githubusercontent.com/Map-A-Droid/MAD-ATV/master/update_mad.sh /system/bin/update_mad.sh
-    chmod +x /system/bin/update_mad.sh
-fi
 ! [[ -f /sdcard/disableautopogoupdate ]] && sh -x /system/bin/update_mad.sh -p
 ! [[ -f /sdcard/disableautopogodroidupdate ]] && sh -x /system/bin/update_mad.sh -wd
 ! [[ -f /sdcard/disableautorgcupdate ]] && sh -x /system/bin/update_mad.sh -wr
